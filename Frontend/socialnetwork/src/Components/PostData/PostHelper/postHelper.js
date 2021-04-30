@@ -9,3 +9,21 @@ export const fetchData = () => {
     })
     .catch(err => console.log(err))
 }
+
+export const createPostData = (id,userData) =>{
+
+    const formData = new FormData();
+    for (const name in userData){
+        formData.append(name, userData[name])
+    }
+
+    return fetch(`${API}postData/postCreate/${id}/`,{
+        method:"POST",
+        body:formData  
+    })
+    .then((response) =>{
+        console.log("Innnnnnnnn this", response);
+        return response.json();
+    })
+    .catch(err => console.log(err))
+}
