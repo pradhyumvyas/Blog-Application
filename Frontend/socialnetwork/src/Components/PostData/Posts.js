@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState, useEffect} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
 import Card from '@material-ui/core/Card';
@@ -14,7 +14,8 @@ import { red } from '@material-ui/core/colors';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import ThumbDownIcon from '@material-ui/icons/ThumbDown';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import MoreVertIcon from '@material-ui/icons/MoreVert';
+import {fetchData} from './PostHelper/postHelper'
+import {Button} from '@material-ui/core'
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -40,6 +41,26 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function RecipeReviewCard() {
+
+    const [post, setPost] = useState([])
+
+    useEffect(() => {
+        fetchData()
+        .then((data) =>{
+            console.log("my data", data);
+            if(data.error){
+                // setError(data.error)
+                console.log("Errorrr");
+                // console.log(error);
+            }
+            else{
+                console.log("Inside else");
+                setPost(data)
+            }
+        })
+        .catch(err => console.log(err))
+    }, [])
+
     const classes = useStyles();
     const [expanded, setExpanded] = React.useState(false);
 
@@ -47,54 +68,67 @@ export default function RecipeReviewCard() {
     setExpanded(!expanded);
     };
 
+    // const mychk = () =>(console.log(post))
+    var mydate
     return (
-    <Card className={classes.root}>
-        <CardHeader
-        avatar={
-            <Avatar aria-label="recipe" className={classes.avatar}>
-            R
-            </Avatar>
-        }
 
-        title="Shrimp and Chorizo Paella"
-        subheader="September 14, 2016"
-        />
+    <div>
+        {post.map(myPost =>(
 
-        <CardContent>
-            <Typography variant="body2" color="textSecondary" component="p">
-            This impressive paella is a perfect party dish and a fun meal to cook together with your
-            guests. Add 1 cup of frozen peas along with the mussels, if you like.
-        </Typography>
-        </CardContent>
-        <CardActions disableSpacing>
-        <IconButton aria-label="like">
-            <FavoriteIcon />
-        </IconButton>
-        <IconButton aria-label="dislike">
-            <ThumbDownIcon />
-        </IconButton>
-        <IconButton
-            className={clsx(classes.expand, {
-            [classes.expandOpen]: expanded,
-            })}
-            onClick={handleExpandClick}
-            aria-expanded={expanded}
-            aria-label="show more"
-        >
-            <ExpandMoreIcon />
-        </IconButton>
-        </CardActions>
-        <Collapse in={expanded} timeout="auto" unmountOnExit>
-        <CardContent>
-            <Typography paragraph>
-            Add rice and stir very gently to distribute. Top with artichokes and peppers, and cook
-            without stirring, until most of the liquid is absorbed, 15 to 18 minutes. Reduce heat to
-            medium-low, add reserved shrimp and mussels, tucking them down into the rice, and cook
-            again without stirring, until mussels have opened and rice is just tender, 5 to 7
-            minutes more. (Discard any mussels that don’t open.)
+            // <div>
+            //     <h3>{myPost.postTitle}</h3>
+            //     <h4>{myPost.postDate}</h4>
+            //     <h6>{myPost.textPost}</h6>
+            // </div>
+            <div className="myAllPosts" > 
+        <Card className={classes.root}>
+            <CardHeader
+            // avatar={
+            //     <Avatar aria-label="recipe" className={classes.avatar}>
+            //     R
+            //     </Avatar>
+            // }
+
+            title={myPost.postTitle}
+            { ...mydate = myPost.postDate.split('T')}
+            subheader={mydate[0]}
+            />
+
+            <CardContent>
+                <Typography variant="body2" color="textSecondary" component="p">
+                This impressive paella is a perfect party dish and a fun meal to cook together with your
+                guests. Add 1 cup of frozen peas along with the mussels, if you like.
             </Typography>
-        </CardContent>
-        </Collapse>
-    </Card>
+            </CardContent>
+            <CardActions disableSpacing>
+            <IconButton aria-label="like">{myPost.like}
+                <FavoriteIcon />
+            </IconButton>
+            <IconButton aria-label="dislike">{myPost.dislike}
+                <ThumbDownIcon />
+            </IconButton>
+            <IconButton
+                className={clsx(classes.expand, {
+                [classes.expandOpen]: expanded,
+                })}
+                onClick={handleExpandClick}
+                aria-expanded={expanded}
+                aria-label="show more"
+            >
+                <ExpandMoreIcon />
+            </IconButton>
+            </CardActions>
+            <Collapse in={expanded} timeout="auto" unmountOnExit>
+            <CardContent>
+                <Typography paragraph>
+                    {myPost.textPost}
+                </Typography>
+            </CardContent>
+            </Collapse>
+        </Card>
+        </div>
+        ))}
+                {/* <Button onClick={() =>{mychk()}}>Cloick</Button> */}
+    </div>
     );
 }

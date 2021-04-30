@@ -3,6 +3,7 @@ import {AppBar, Toolbar, Button} from '@material-ui/core'
 import { useHistory } from 'react-router-dom'
 import {signout, isAuthenticated} from '../users/Helper/Index'
 import Posts from './Posts'
+import {fetchData} from './PostHelper/postHelper'
 
 function Dashboard() {
 
