@@ -1,0 +1,66 @@
+body {
+  background-color: #8d8989;
+  color: black;
+  text-align: center;
+}
+
+.mainHomePage {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -ms-flex-line-pack: start;
+      align-content: flex-start;
+}
+
+.homeleft {
+  padding-top: 7%;
+}
+
+.homeRight {
+  padding-top: 5%;
+}
+
+.homeButtons Button {
+  margin: 2vw;
+}
+
+.signin {
+  max-width: 200px;
+}
+
+.signin Button {
+  margin: 5px;
+}
+
+.signupForm {
+  max-width: 200px;
+  border: 2px solid black;
+  border-radius: 10%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.signup {
+  margin: auto 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-line-pack: center;
+      align-content: center;
+}
+/*# sourceMappingURL=style.css.map */

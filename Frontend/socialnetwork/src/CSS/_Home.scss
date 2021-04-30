@@ -1,0 +1,26 @@
+body{
+    background-color: rgb(141, 137, 137);
+    color: black;
+    text-align: center;
+}
+
+.mainHomePage{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-content: flex-start;
+}
+
+.homeleft{
+    padding-top: 7%;
+}
+
+.homeRight{
+    padding-top: 5%;
+}
+
+.homeButtons{
+    Button{
+        margin: 2vw;
+    }
+}

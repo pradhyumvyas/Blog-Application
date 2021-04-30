@@ -50,6 +50,7 @@ function Signin() {
     }
 
     const onLoginSubmit = (event) => {
+        console.log("Onloginn submit");
         event.preventDefault();
         setValues({...values, error:false, loading:true})
         signin({username, password})
