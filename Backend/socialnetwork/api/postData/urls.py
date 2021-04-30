@@ -5,9 +5,9 @@ router = routers.DefaultRouter()
 # router.register(r'',views.DataViewSet)
 
 urlpatterns = [
-    # path('add/<str:id>/<str:token>/',  views.add, name='data.add'),
-    # path('data/<str:id>/', views.fetchData, name='fetchData'),
-    # path('companyLists/', views.companyLists, name='companyLists'),
     path('', include(router.urls)),
-    # path(r'', views.DataViewSet, name='mydata')
+    path('postShow/', views.showPost, name="showPost"),
+    path('postCreate/<str:id>/', views.createPost, name="createPost"),
+    path('postLike/<int:id>/', views.postLike, name="createPost"),
+    path('postDislike/<int:id>/', views.postDislike, name="createPost"),
 ]
