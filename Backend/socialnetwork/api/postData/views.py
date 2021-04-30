@@ -13,9 +13,10 @@ from django.db.models import F
 def createPost(request,id):
     if request.method == "POST":
         username = id
+        postTitle = request.POST['postTitle']
         textPost = request.POST['textPost']
 
-        newPost = Post(username=username, textPost=textPost)
+        newPost = Post(username=username, postTitle=postTitle, textPost=textPost)
         newPost.save()
         return JsonResponse({"sucess":"Sucessfully post created"})
     return JsonResponse({"error":"Not a post method"})
