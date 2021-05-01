@@ -1,5 +1,10 @@
 # Assessment Task 
 
+
+## Introduction
+- Objective of this task is to create a simple REST API based social network in Django
+where Users can sign up and create text posts, as well as view, like, and unlike other
+Users’ posts.
 ## Technology I Used
 ### Backend
 - Django
@@ -19,7 +24,7 @@ Show Post :     http://127.0.0.1:8000/api/postData/postShow/
 
 Like post :     http://127.0.0.1:8000/api/postData/postLike/${postID}/
 
-Dislike Post:   http://127.0.0.1:8000/api/postData/postDislike/${}postID/
+Dislike Post:   http://127.0.0.1:8000/api/postData/postDislike/${postID}/
 
 ```
 #### For database I used Sqlite3 DB
