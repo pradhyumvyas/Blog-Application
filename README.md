@@ -1,5 +1,5 @@
 # Introduction
-- Objective of this task is to create a simple REST API based social network in Django
+- Objective of this project is to create a simple REST API based social network in Django
 where Users can sign up and create text posts, as well as view, like, and unlike other
 Users’ posts.
 
