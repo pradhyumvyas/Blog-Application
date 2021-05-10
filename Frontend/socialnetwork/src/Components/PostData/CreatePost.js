@@ -3,6 +3,9 @@ import {Button} from '@material-ui/core'
 import { useHistory } from 'react-router-dom'
 // import Dashboard from './Dashboard';
 import {createPostData} from './PostHelper/postHelper'
+import { MyNavbar } from './Dashboard'
+
+
 
 function CreatePost() {
 
@@ -37,6 +40,7 @@ function CreatePost() {
     const CreateNewPost = () =>{
             return (
                 <div>
+                    <MyNavbar />
                     <div className="createPost">
                         <div className="createPostForm">
                             <h2>Create</h2>

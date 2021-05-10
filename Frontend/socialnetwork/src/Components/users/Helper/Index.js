@@ -80,3 +80,19 @@ export const signout = next => {
         .catch(err => console.log(err))
     }
 }
+
+export const likePost = (postID) =>{
+    fetch(`${API}postData/postLike/${postID}/`)
+    .then(response =>{
+        console.log("Post Liked")
+    })
+    .catch(err => console.log(err))
+}
+
+export const dislikePost = (postID) =>{
+    fetch(`${API}postData/postDislike/${postID}/`)
+    .then(response =>{
+        console.log("Post Liked")
+    })
+    .catch(err => console.log(err))
+}

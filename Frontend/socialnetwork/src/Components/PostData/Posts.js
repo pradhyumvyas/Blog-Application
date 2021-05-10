@@ -15,7 +15,8 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import ThumbDownIcon from '@material-ui/icons/ThumbDown';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import {fetchData} from './PostHelper/postHelper'
-import {Button} from '@material-ui/core'
+import { likePost, dilikePost } from '../users/Helper/Index';
+
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -70,9 +71,13 @@ export default function RecipeReviewCard() {
 
     // const mychk = () =>(console.log(post))
     var mydate
+
+    
+
+
     return (
 
-    <div>
+    <div className="posts">
         {post.map(myPost =>(
 
             // <div>
@@ -91,13 +96,12 @@ export default function RecipeReviewCard() {
 
             title={myPost.postTitle}
             { ...mydate = myPost.postDate.split('T')}
-            subheader={mydate[0]}
+                subheader={mydate[0]}
             />
 
             <CardContent>
                 <Typography variant="body2" color="textSecondary" component="p">
-                This impressive paella is a perfect party dish and a fun meal to cook together with your
-                guests. Add 1 cup of frozen peas along with the mussels, if you like.
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam, sunt.
             </Typography>
             </CardContent>
             <CardActions disableSpacing>

@@ -2,10 +2,34 @@
 
 .myAllPosts{
     margin: 10px;
-    display: flex;
     padding: 1px;
-    justify-content: space-around;
-    flex-wrap: wrap;
+    // display: flex;
+    // justify-content: center;
+    // flex-wrap: wrap;
     // text-align: ;
 
+}
+
+.posts{
+    display: flex;
+    padding: 1px;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+.myNav{
+    // // flex-grow: 1
+    // display: flex;
+    // flex-direction: column;
+    // justify-content: flex-end;
+    
+}
+
+.accountButton{
+    float: right;
+}
+
+.MuiToolbar-root{
+    justify-content: space-between;
 }
