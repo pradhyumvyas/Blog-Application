@@ -15,7 +15,7 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import ThumbDownIcon from '@material-ui/icons/ThumbDown';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import {fetchData} from './PostHelper/postHelper'
-import { likePost, dilikePost } from '../users/Helper/Index';
+import { likePost, dislikePost } from '../users/Helper/Index';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -44,6 +44,25 @@ const useStyles = makeStyles((theme) => ({
 export default function RecipeReviewCard() {
 
     const [post, setPost] = useState([])
+    const [like, setLike] = useState(0)
+    const [dislike, setDislike] = useState(0)
+
+    const particularPostLike = (id) =>{
+        likePost(id)
+        .then((response) =>{
+            console.log("like Response", response);
+        })
+        .catch(err => console.log(err))
+    }
+
+    const particularPostDislike = (id) =>{
+        dislikePost(id)
+        // .then((response1) =>{
+        //     console.log("like Response", response1);
+        //     // return response
+        // })
+        // .catch(err => console.log(err))
+    }
 
     useEffect(() => {
         fetchData()
@@ -60,7 +79,7 @@ export default function RecipeReviewCard() {
             }
         })
         .catch(err => console.log(err))
-    }, [])
+    },like, dislike)
 
     const classes = useStyles();
     const [expanded, setExpanded] = React.useState(false);
@@ -105,7 +124,7 @@ export default function RecipeReviewCard() {
             </Typography>
             </CardContent>
             <CardActions disableSpacing>
-            <IconButton aria-label="like">{myPost.like}
+            <IconButton onClick={() =>(particularPostLike(myPost.id))} aria-label="like">{myPost.like}
                 <FavoriteIcon />
             </IconButton>
             <IconButton aria-label="dislike">{myPost.dislike}

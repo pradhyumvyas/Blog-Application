@@ -82,9 +82,12 @@ export const signout = next => {
 }
 
 export const likePost = (postID) =>{
-    fetch(`${API}postData/postLike/${postID}/`)
-    .then(response =>{
-        console.log("Post Liked")
+    fetch(`${API}postData/postLike/${postID}/`, {
+        method:"GET"
+    })
+    .then((response) =>{
+        // console.log("Post Liked", response)
+        return response
     })
     .catch(err => console.log(err))
 }
